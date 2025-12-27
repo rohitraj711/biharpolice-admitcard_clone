@@ -36,21 +36,6 @@ Mobile view is not supported in this project.
 
 ---
 
-## 📁 Project Structure
-
-biharpolice-admitcard_clone/
-│
-├── index.html
-├── admitcard.html
-├── preview.html
-├── admitcard.css
-├── biharpoliceweb.css
-├── csbc_logo.png
-├── homeIcon.png
-└── images/
-
-
----
 
 ## ▶️ How to Use
 1. Open the live website link  
