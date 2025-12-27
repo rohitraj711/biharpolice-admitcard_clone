@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bihar Police Admit Card</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f2f2f2;
+        }
+
+        .admit-wrapper{
+            display: flex;
+            justify-content: center;
+            padding: 30px 0;
+        }
+
+        .admit-card{
+            width: 650px;
+            background: white;
+            border: 2px solid #333;
+            padding: 20px;
+        }
+
+        .top{
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid #000;
+            padding-bottom: 10px;
+        }
+
+        .top img{
+            height: 80px;
+            margin-right: 15px;
+        }
+
+        .top h2{
+            font-size: 20px;
+        }
+
+        .top p{
+            font-size: 14px;
+        }
+
+        .title{
+            text-align: center;
+            margin: 15px 0;
+            font-weight: bold;
+            font-size: 18px;
+            text-decoration: underline;
+        }
+
+        .info{
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .info div{
+            width: 48%;
+            font-size: 14px;
+        }
+
+        .info p{
+            margin-bottom: 6px;
+        }
+
+        .photo{
+            height: 120px;
+            width: 100px;
+            border: 1px solid #000;
+            text-align: center;
+            font-size: 12px;
+            padding-top: 45px;
+        }
+
+        .footer{
+            margin-top: 15px;
+            font-size: 13px;
+        }
+
+        .print-btn{
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .print-btn button{
+            padding: 8px 25px;
+            font-size: 16px;
+            border: none;
+            background: #034755;
+            color: white;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        @media print{
+            .print-btn{
+                display: none;
+            }
+            body{
+                background: white;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="admit-wrapper">
+    <div class="admit-card">
+
+        <div class="top">
+            <img src="csbc_logo.png" alt="CSBC Logo">
+            <div>
+                <h2>CENTRAL SELECTION BOARD OF CONSTABLE</h2>
+                <p>Government of Bihar</p>
+                <p>Admit Card – Constable Recruitment (01/2025)</p>
+            </div>
+        </div>
+
+        <div class="title">ADMIT CARD</div>
+
+        <div class="info">
+            <div>
+                <p><b>Candidate Name:</b> Demo Candidate</p>
+                <p><b>Registration ID:</b> BP123456</p>
+                <p><b>Date of Birth:</b> 01-01-2005</p>
+                <p><b>Gender:</b> Male</p>
+            </div>
+
+            <div>
+                <p><b>Exam Date:</b> 15 January 2025</p>
+                <p><b>Exam Time:</b> 10:00 AM – 12:00 PM</p>
+                <p><b>Exam Center:</b> Patna High School</p>
+
+                <div class="photo">Photo</div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><b>Important Instructions:</b></p>
+            <ul>
+                <li>Bring this admit card to the examination center.</li>
+                <li>Carry a valid photo ID proof.</li>
+                <li>Reporting time is 1 hour before exam.</li>
+            </ul>
+        </div>
+
+        <div class="print-btn">
+            <button onclick="window.print()">Print Admit Card</button>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

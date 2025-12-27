@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Admit Card</title>
+    <link rel="stylesheet" href="admitcard.css">
+</head>
+
+<body>
+<div class="main">
+
+    <div class="header">
+        <div id="logo">
+            <img src="csbc_logo.png" alt="Bihar Police">
+        </div>
+
+        <h1>CENTRAL SELECTION BOARD OF CONSTABLE, BIHAR, PATNA</h1>
+        <h5>05, Harding Road, Patna-800001, Bihar</h5>
+
+        <h2>
+            RECRUITMENT FOR BIHAR POLICE CONSTABLES
+            <span style="font-size:24px;font-weight:bold;">(Advt. No. 01/2025)</span>
+        </h2>
+
+        <span class="contact">Customer Support: (9AM - 6PM)</span>
+        <span class="contact2">csbchelpdesk@gmail.com</span>
+
+        <div class="homeicone">
+            <a href="index.html">
+                <img src="homeIcon.png" alt="Home">
+            </a>
+            <div class="line"></div>
+            <span class="hom">Home</span>
+        </div>
+    </div>
+
+    <div class="marquee">
+        <marquee behavior="scroll" direction="left">
+            Please enter Registration Id and Date of Birth used during registration
+        </marquee>
+    </div>
+
+    <div class="container">
+        <div class="pink-box">
+
+            <div class="heading">
+                <p>Download Admit Card</p>
+            </div>
+
+            <div class="form-d">
+                <form id="admitForm">
+
+                    <label>Application Number / Registration ID:</label><br><br>
+                    <input type="text" id="regId" placeholder="Enter Your Registration ID"><br><br>
+
+                    <label>Date of Birth:</label><br><br>
+                    <input type="date" id="dob"><br><br>
+
+                    <label>Enter Captcha:</label><br><br>
+                    <input type="text" id="captchaInput"><br><br>
+
+                    <img id="captchaImg" class="captcha">
+                    <button type="button" onclick="generateCaptcha()">↻</button>
+
+                    <p id="errorMsg"></p>
+
+                    <input type="submit" value="Submit">
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>Copyright © Rohit Raj (CSBC)</p>
+        <p>Desari, Vaishali, Bihar-844504</p>
+    </footer>
+
+</div>
+
+<div id="popup" class="popup">
+    <div class="popup-box">
+        <h3>✅ Success</h3>
+        <p>Captcha verified.<br>Admit Card ready.</p>
+        <button onclick="closePopup()">OK</button>
+    </div>
+</div>
+
+<script>
+let captchaText = "";
+
+function generateCaptcha(){
+    let chars = "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz0123456789";
+    captchaText = "";
+    for(let i = 0; i < 6; i++){
+        captchaText += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+
+    let canvas = document.createElement("canvas");
+    canvas.width = 150;
+    canvas.height = 40;
+    let ctx = canvas.getContext("2d");
+
+    ctx.fillStyle = "#f2f2f2";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.font = "22px Arial";
+    ctx.fillStyle = "#333";
+    ctx.fillText(captchaText, 20, 28);
+
+    document.getElementById("captchaImg").src = canvas.toDataURL();
+}
+
+generateCaptcha();
+
+document.getElementById("admitForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    let regId = document.getElementById("regId").value.trim();
+    let dob = document.getElementById("dob").value;
+    let captchaInput = document.getElementById("captchaInput").value.trim();
+    let msg = document.getElementById("errorMsg");
+
+    if(regId === "" || dob === "" || captchaInput === ""){
+        msg.innerText = "⚠ All fields are required";
+        msg.className = "error";
+        return;
+    }
+
+    if(captchaInput !== captchaText){
+        msg.innerText = "❌ Captcha incorrect";
+        msg.className = "error";
+        generateCaptcha();
+        return;
+    }
+
+    msg.innerText = "";
+    document.getElementById("popup").style.display = "flex";
+});
+
+function closePopup(){
+    document.getElementById("popup").style.display = "none";
+    window.location.href = "preview.html";
+}
+</script>
+
+</body>
+</html>
